@@ -1,0 +1,22 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 1.25rem;
+  height: 100vh;
+}
+
+.sheet {
+  background: #0f1423;
+  border-radius: 20px;
+  padding: 1.75rem 1.25rem;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.6);
+}

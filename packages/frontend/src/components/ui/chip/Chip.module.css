@@ -1,0 +1,21 @@
+.chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  color: var(--muted-bright);
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+  letter-spacing: 0.01em;
+}
+
+.active {
+  background: linear-gradient(135deg, var(--accent) 0%, #c42e4c 100%);
+  border-color: transparent;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 2px 12px var(--accent-glow);
+}

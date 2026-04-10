@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #070a15;
+  --surface: #0c1022;
+  --card: #111827;
+  --card-hover: #161e30;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-bright: rgba(255, 255, 255, 0.14);
+  --accent: #e8375a;
+  --accent-dim: rgba(232, 55, 90, 0.15);
+  --accent-glow: rgba(232, 55, 90, 0.3);
+  --gold: #f0ab3d;
+  --gold-dim: rgba(240, 171, 61, 0.15);
+  --gold-glow: rgba(240, 171, 61, 0.25);
+  --text: #f1f5f9;
+  --muted: #64748b;
+  --muted-bright: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:
+    radial-gradient(
+      ellipse 80% 50% at 20% -5%,
+      rgba(99, 60, 180, 0.1) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 90% 105%,
+      rgba(232, 55, 90, 0.07) 0%,
+      transparent 55%
+    ),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    sans-serif;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-bright);
+  border-radius: 2px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes countIn {
+  from {
+    opacity: 0;
+    transform: scale(1.6) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pulseRing {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 var(--accent-glow),
+      0 0 32px var(--accent-dim);
+  }
+  50% {
+    box-shadow:
+      0 0 0 10px rgba(232, 55, 90, 0),
+      0 0 48px rgba(232, 55, 90, 0.2);
+  }
+}
+
+@keyframes pulseGold {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 var(--gold-glow),
+      0 0 24px var(--gold-dim);
+  }
+  50% {
+    box-shadow:
+      0 0 0 8px rgba(240, 171, 61, 0),
+      0 0 40px rgba(240, 171, 61, 0.15);
+  }
+}
+
+@keyframes votePulse {
+  0%,
+  100% {
+    text-shadow:
+      0 0 30px rgba(232, 55, 90, 0.6),
+      0 0 60px rgba(232, 55, 90, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow:
+      0 0 50px rgba(232, 55, 90, 0.9),
+      0 0 100px rgba(232, 55, 90, 0.5);
+    transform: scale(1.04);
+  }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 4px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease both;
+}
+.animate-scaleIn {
+  animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-countIn {
+  animation: countIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

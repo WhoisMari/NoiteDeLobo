@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Character {
+  id         Int     @id @default(autoincrement())
+  key        String  @unique
+  name       String
+  emoji      String
+  nightOrder Int?
+  isEnabled  Boolean @default(true)
+}
+
+model Player {
+  id          Int          @id @default(autoincrement())
+  name        String       @unique
+  totalPoints Int          @default(0)
+  createdAt   DateTime     @default(now())
+  roundScores RoundScore[]
+}
+
+model Round {
+  id        Int          @id @default(autoincrement())
+  createdAt DateTime     @default(now())
+  scores    RoundScore[]
+}
+
+model RoundScore {
+  id       Int    @id @default(autoincrement())
+  roundId  Int
+  playerId Int
+  points   Int    @default(0)
+  round    Round  @relation(fields: [roundId], references: [id], onDelete: Cascade)
+  player   Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@unique([roundId, playerId])
+}
